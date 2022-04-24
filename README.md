@@ -2,7 +2,8 @@
 - react-router-dom
 - styled-components
 
-# File structure
+# project structures
+```
 App.jsx (Main Page)
 |_ Nav
     |_ version1.1
@@ -21,4 +22,4 @@ App.jsx (Main Page)
         |_ version4.2
         |_ version4.3
         |_ version4.4
-
+```

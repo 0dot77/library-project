@@ -2,6 +2,10 @@
 - react-router-dom
 - styled-components
 
+# Font
+- Basic sans regular / bold
+- Han Serif Korean regular / bold
+
 # project structures
 ```
 App.jsx (Main Page)

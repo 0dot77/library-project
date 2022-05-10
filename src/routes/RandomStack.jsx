@@ -1,10 +1,12 @@
 import React from "react";
 import Nav from "../components/Nav";
+import SubNav from "../components/SubNav";
+
 function RandomStack() {
   return (
     <>
       <Nav></Nav>
-      <h1>this is randomStack</h1>
+      <SubNav />
     </>
   );
 }

@@ -1,75 +1,104 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0px 20px 0px 20px;
   width: 100%;
   height: 48px;
   display: flex;
   border-bottom: 1px solid #000000;
+  font-family: ${(props) => props.font};
   align-items: center;
   justify-content: space-between;
   background-color: #f7f7f7;
-
-  a:first-child {
-    font-weight: 900;
-
-    &:hover {
-      border-bottom: none;
-      font-style: italic;
-    }
-  }
-  a {
-    text-align: center;
-    font-family: basic-sans, sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    width: 13rem;
-
-    &:hover {
-      border-bottom: 1px solid black;
-      font-style: italic;
-    }
-  }
 `;
 
-const Title = styled.p`
-  width: 13rem;
-  text-align: center;
-  font-family: basic-sans, sans-serif;
+/**
+ * Main Title
+ */
+
+const MainTitle = styled(Link)`
+  font-family: ${(props) => props.font};
+  font-size: ${(props) => props.fontSize};
   font-weight: 900;
-  font-style: italic;
-  font-size: 20px;
 `;
 
-const ClickedSection = styled.p`
-  border-bottom: 1px solid black;
-  font-weight: 400;
-  font-style: italic;
-  font-family: basic-sans, sans-serif;
-  font-size: 20px;
-  width: 13rem;
+const MovedMainTitle = styled(MainTitle)`
+  font-style: normal;
+  font-weight: 700;
+  &:hover {
+    font-style: italic;
+    font-weight: 900;
+  }
+`;
+
+/**
+ * Contents
+ */
+
+const ContentsContainer = styled.div`
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+`;
+
+const Content = styled(Link)`
   text-align: center;
+  font-weight: 400;
+  font-size: ${(props) => props.fontSize};
+  width: ${(props) => props.activeBottomBorder};
+
+  &:hover {
+    border-bottom: 1px solid black;
+    font-style: italic;
+  }
+`;
+
+const ClickedContent = styled(Content)`
+  border-bottom: 1px solid black;
+  font-style: italic;
 `;
 
 function Nav() {
+  //styled-components 변수 선언
+  const font = 'basic-sans, sans-serif';
+  const fontSize = '17px';
+  const activeBottomBorder = '8rem';
+
   const { pathname } = useLocation();
   return (
-    <Container>
-      {pathname === "/" ? <Title>Hidden Book Finder</Title> : <Link to={`/`}>Hidden Book Finder</Link>}
-
-      {pathname === "/random-stack" ? (
-        <ClickedSection>random-stack</ClickedSection>
+    <Container font={font}>
+      {pathname === '/' ? (
+        <MainTitle as="p">Hidden Book Finder</MainTitle>
       ) : (
-        <Link to={`/random-stack`}>random-stack</Link>
+        <MovedMainTitle to={'/'}>Hidden Book Finder</MovedMainTitle>
       )}
 
-      <Link to={`/search`}>search</Link>
-      <Link to={`/book-shelf`}>book-shelf</Link>
-      <Link to={`/book`}>book</Link>
-      <Link to={`/your-finds`}>your finds</Link>
+      <ContentsContainer fontSize={fontSize}>
+        {pathname === '/random-stack' ? (
+          <ClickedContent as="p" activeBottomBorder={activeBottomBorder}>
+            random-stack
+          </ClickedContent>
+        ) : (
+          <Content to={`/random-stack`} activeBottomBorder={activeBottomBorder}>
+            random-stack
+          </Content>
+        )}
+        <Content to={`/search`} activeBottomBorder={activeBottomBorder}>
+          search
+        </Content>
+        <Content to={`/book-shelf`} activeBottomBorder={activeBottomBorder}>
+          book-shelf
+        </Content>
+        <Content to={`/book`} activeBottomBorder={activeBottomBorder}>
+          book
+        </Content>
+      </ContentsContainer>
+
+      <Content to={`/your-finds`} activeBottomBorder={activeBottomBorder}>
+        your finds
+      </Content>
     </Container>
   );
 }

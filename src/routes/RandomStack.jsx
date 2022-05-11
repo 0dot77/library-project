@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Nav from '../components/Nav';
 import SubNav from '../components/SubNav';
+import RandomDiverse from '../components/random-stack/RandomDiverse';
+import RandomColliding from '../components/random-stack/RandomColliding';
+import RandomImperfect from '../components/random-stack/RandomImperfect';
 
 function RandomStack() {
   const [section, setSection] = useState(1);
@@ -8,7 +11,7 @@ function RandomStack() {
     <>
       <Nav></Nav>
       <SubNav onChangeSection={setSection} onChangeSectionMode={section} />
-      {section === 1 ? <h1>diverse</h1> : section === 2 ? <h1>colliding</h1> : <h1>Imperfect</h1>}
+      {section === 1 ? <RandomDiverse /> : section === 2 ? <RandomColliding /> : <RandomImperfect />}
     </>
   );
 }

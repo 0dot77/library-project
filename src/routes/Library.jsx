@@ -1,6 +1,7 @@
-import React from "react";
-import Nav from "../components/Nav";
-import styled from "styled-components";
+import React from 'react';
+import Nav from '../components/Nav';
+import styled from 'styled-components';
+import { book } from '../book-list.json';
 
 const Title = styled.h1`
   font-size: 9rem;

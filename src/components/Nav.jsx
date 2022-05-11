@@ -22,6 +22,7 @@ const MainTitle = styled(Link)`
   font-family: ${(props) => props.font};
   font-size: ${(props) => props.fontsize};
   font-weight: 900;
+  font-style: italic;
 `;
 
 const MovedMainTitle = styled(MainTitle)`
@@ -44,7 +45,7 @@ const ContentsContainer = styled.div`
 `;
 
 const Content = styled(Link)`
-  text-align: center;
+  text-align: ${(props) => (props.yourFindsTextAlign ? props.yourFindsTextAlign : 'center')};
   font-weight: 400;
   font-size: ${(props) => props.fontsize};
   width: ${(props) => props.activebottomborder};
@@ -58,6 +59,7 @@ const Content = styled(Link)`
 const ClickedContent = styled(Content)`
   border-bottom: 1px solid black;
   font-style: italic;
+  text-align: ${(props) => (props.yourFindsTextAlign ? props.yourFindsTextAlign : 'center')};
 `;
 
 function Nav() {
@@ -65,6 +67,7 @@ function Nav() {
   const font = 'basic-sans, sans-serif';
   const fontsize = '17px';
   const activebottomborder = '8rem';
+  const yourFindsTextAlign = 'end';
 
   const { pathname } = useLocation();
   return (
@@ -116,11 +119,11 @@ function Nav() {
       </ContentsContainer>
 
       {pathname === '/your-finds' ? (
-        <ClickedContent as="p" activebottomborder={activebottomborder}>
+        <ClickedContent as="p" activebottomborder={activebottomborder} yourFindsTextAlign={yourFindsTextAlign}>
           your-finds
         </ClickedContent>
       ) : (
-        <Content to={`/your-finds`} activebottomborder={activebottomborder}>
+        <Content to={`/your-finds`} activebottomborder={activebottomborder} yourFindsTextAlign={yourFindsTextAlign}>
           your-finds
         </Content>
       )}

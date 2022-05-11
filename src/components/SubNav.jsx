@@ -26,7 +26,6 @@ const ClickedContainer = keyframes`
 const revealContainer = keyframes`
   from {
     width: 0px;
-    
   }
   to {
     width: 508px;
@@ -91,6 +90,12 @@ const Mode = styled.div`
 
 const ModeList = styled(Mode)`
   background-color: white;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #000000;
+  height: 26px;
+  border-radius: 40px;
   width: 150px;
   &:hover {
     background-color: #eeff28;
@@ -111,7 +116,7 @@ const sections = [
   { id: 3, label: 'imperfect' },
 ];
 
-function SubNav() {
+function SubNav({ onChangeSection, onChangeSectionMode }) {
   const [clicked, setClicked] = useState(false);
   const [checkMouseEnter, setCheckMouseEnter] = useState(null);
 
@@ -127,7 +132,6 @@ function SubNav() {
           {sections.map(({ id, label }) => (
             <ModeList
               key={id}
-              as="li"
               onMouseEnter={(e) => {
                 setCheckMouseEnter({ id, label });
                 e.target.textContent = `→ ${label} Mode`;
@@ -135,14 +139,16 @@ function SubNav() {
               onMouseLeave={(e) => {
                 e.target.textContent = label;
               }}
+              onClick={() => {
+                onChangeSection(id);
+              }}
             >
               {label}
             </ModeList>
           ))}
         </ModeSelector>
       ) : (
-        // 클릭 되었을 때 그 항목을 바뀌어야 한다.
-        <Mode>&rarr; diverse</Mode>
+        <Mode>&rarr; {sections[onChangeSectionMode - 1].label}</Mode>
       )}
     </Container>
   );

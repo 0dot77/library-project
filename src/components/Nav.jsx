@@ -20,7 +20,7 @@ const Container = styled.div`
 
 const MainTitle = styled(Link)`
   font-family: ${(props) => props.font};
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => props.fontsize};
   font-weight: 900;
 `;
 
@@ -46,8 +46,8 @@ const ContentsContainer = styled.div`
 const Content = styled(Link)`
   text-align: center;
   font-weight: 400;
-  font-size: ${(props) => props.fontSize};
-  width: ${(props) => props.activeBottomBorder};
+  font-size: ${(props) => props.fontsize};
+  width: ${(props) => props.activebottomborder};
 
   &:hover {
     border-bottom: 1px solid black;
@@ -63,8 +63,8 @@ const ClickedContent = styled(Content)`
 function Nav() {
   //styled-components 변수 선언
   const font = 'basic-sans, sans-serif';
-  const fontSize = '17px';
-  const activeBottomBorder = '8rem';
+  const fontsize = '17px';
+  const activebottomborder = '8rem';
 
   const { pathname } = useLocation();
   return (
@@ -75,28 +75,28 @@ function Nav() {
         <MovedMainTitle to={'/'}>Hidden Book Finder</MovedMainTitle>
       )}
 
-      <ContentsContainer fontSize={fontSize}>
+      <ContentsContainer fontsize={fontsize}>
         {pathname === '/random-stack' ? (
-          <ClickedContent as="p" activeBottomBorder={activeBottomBorder}>
+          <ClickedContent as="p" activebottomborder={activebottomborder}>
             random-stack
           </ClickedContent>
         ) : (
-          <Content to={`/random-stack`} activeBottomBorder={activeBottomBorder}>
+          <Content to={`/random-stack`} activebottomborder={activebottomborder}>
             random-stack
           </Content>
         )}
-        <Content to={`/search`} activeBottomBorder={activeBottomBorder}>
+        <Content to={`/search`} activebottomborder={activebottomborder}>
           search
         </Content>
-        <Content to={`/book-shelf`} activeBottomBorder={activeBottomBorder}>
+        <Content to={`/book-shelf`} activebottomborder={activebottomborder}>
           book-shelf
         </Content>
-        <Content to={`/book`} activeBottomBorder={activeBottomBorder}>
+        <Content to={`/book`} activebottomborder={activebottomborder}>
           book
         </Content>
       </ContentsContainer>
 
-      <Content to={`/your-finds`} activeBottomBorder={activeBottomBorder}>
+      <Content to={`/your-finds`} activebottomborder={activebottomborder}>
         your finds
       </Content>
     </Container>

@@ -115,9 +115,15 @@ function Nav() {
         )}
       </ContentsContainer>
 
-      <Content to={`/your-finds`} activebottomborder={activebottomborder}>
-        your finds
-      </Content>
+      {pathname === '/your-finds' ? (
+        <ClickedContent as="p" activebottomborder={activebottomborder}>
+          your-finds
+        </ClickedContent>
+      ) : (
+        <Content to={`/your-finds`} activebottomborder={activebottomborder}>
+          your-finds
+        </Content>
+      )}
     </Container>
   );
 }

@@ -85,15 +85,34 @@ function Nav() {
             random-stack
           </Content>
         )}
-        <Content to={`/search`} activebottomborder={activebottomborder}>
-          search
-        </Content>
-        <Content to={`/book-shelf`} activebottomborder={activebottomborder}>
-          book-shelf
-        </Content>
-        <Content to={`/book`} activebottomborder={activebottomborder}>
-          book
-        </Content>
+        {pathname === '/search' ? (
+          <ClickedContent as="p" activebottomborder={activebottomborder}>
+            search
+          </ClickedContent>
+        ) : (
+          <Content to={`/search`} activebottomborder={activebottomborder}>
+            search
+          </Content>
+        )}
+        {pathname === '/book-shelf' ? (
+          <ClickedContent as="p" activebottomborder={activebottomborder}>
+            book-shelf
+          </ClickedContent>
+        ) : (
+          <Content to={`/book-shelf`} activebottomborder={activebottomborder}>
+            book-shelf
+          </Content>
+        )}
+
+        {pathname === '/book' ? (
+          <ClickedContent as="p" activebottomborder={activebottomborder}>
+            book
+          </ClickedContent>
+        ) : (
+          <Content to={`/book`} activebottomborder={activebottomborder}>
+            book
+          </Content>
+        )}
       </ContentsContainer>
 
       <Content to={`/your-finds`} activebottomborder={activebottomborder}>

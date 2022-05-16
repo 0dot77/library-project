@@ -2,9 +2,12 @@
 ```
 Library (Main)
 |-random-stack
-    |-diverse
-    |-colliding
-    |-imperfect
+    |-random-stack__diverse
+        |-RandomDiverse.jsx
+    |-random-stack__colliding
+        |-RandomColliding.jsx
+    |-random-stack__imperfect
+        |-RandomImperfect.jsx
 |-search
     |-diverse
     |-colliding

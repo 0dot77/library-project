@@ -32,23 +32,14 @@ const revealContainer = keyframes`
   }
 `;
 
-const revealedContainer = keyframes`
-    from {
-    width: 508px;
-    
-  }
-  to {
-    width: 0px;
-  }
-`;
-
 const Container = styled.div`
+  z-index: 10;
+  position: fixed;
   font-family: basic-sans, sans-serif;
   display: flex;
   justify-content: space-between;
-  margin-top: 13px;
-  margin-right: 23px;
-  float: right;
+  margin-top: 62px;
+  right: 23px;
   height: 26px;
   background: #000000;
   border-radius: 40px;

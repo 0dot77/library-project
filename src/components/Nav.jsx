@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
+  z-index: 10;
   padding: 0px 20px 0px 20px;
   width: 100%;
   height: 48px;
@@ -12,6 +13,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #f7f7f7;
+  position: fixed;
 `;
 
 /**
@@ -67,7 +69,7 @@ function Nav() {
   const font = 'basic-sans, sans-serif';
   const fontsize = '17px';
   const activebottomborder = '8rem';
-  const yourFindsTextAlign = 'end';
+  const yourfindstextalign = 'end';
 
   const { pathname } = useLocation();
   return (
@@ -119,11 +121,11 @@ function Nav() {
       </ContentsContainer>
 
       {pathname === '/your-finds' ? (
-        <ClickedContent as="p" activebottomborder={activebottomborder} yourFindsTextAlign={yourFindsTextAlign}>
+        <ClickedContent as="p" activebottomborder={activebottomborder} yourfindstextalign={yourfindstextalign}>
           your-finds
         </ClickedContent>
       ) : (
-        <Content to={`/your-finds`} activebottomborder={activebottomborder} yourFindsTextAlign={yourFindsTextAlign}>
+        <Content to={`/your-finds`} activebottomborder={activebottomborder} yourfindstextalign={yourfindstextalign}>
           your-finds
         </Content>
       )}

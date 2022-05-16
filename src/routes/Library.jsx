@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import styled from 'styled-components';
-import { book } from '../book-list.json';
 
 const Title = styled.h1`
   font-size: 9rem;
@@ -10,7 +9,7 @@ const Title = styled.h1`
 `;
 
 const TitleContainer = styled.div`
-  margin-top: 110px;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Nav from '../components/Nav';
 import SubNav from '../components/SubNav';
-import RandomDiverse from '../components/random-stack/RandomDiverse';
-import RandomColliding from '../components/random-stack/RandomColliding';
-import RandomImperfect from '../components/random-stack/RandomImperfect';
+import RandomDiverse from '../components/random-stack/random-stack__diverse/RandomDiverse';
+import RandomColliding from '../components/random-stack/random-stack__colliding/RandomColliding';
+import RandomImperfect from '../components/random-stack/random-stack__imperfect/RandomImperfect';
 
 function RandomStack() {
   const [section, setSection] = useState(1);
